@@ -28,10 +28,17 @@ class InbodyPage extends StatelessWidget {
                   }))),
           Obx(() => ElevatedButton(
                 onPressed: () {
-                  _.test.value = '변경되었수';
-                  print(_.test.value);
+                  _.data[0]['product_name'] = '변경되었수';
+                  print(_.data[0]['product_name']);
                 },
-                child: Text(_.test.value),
+                child: Text(_.data[0]['product_name']),
+              )),
+          Obx(() => ElevatedButton(
+                onPressed: () {
+                  _.testlist[0] = "바";
+                  print(_.testlist[0]);
+                },
+                child: Text(_.testlist[0]),
               )),
           Obx(() => Text(_.data[0]['product_ischecked'].toString()))
         ],
@@ -41,20 +48,19 @@ class InbodyPage extends StatelessWidget {
 }
 
 class GetXHttp extends GetxController {
-  @override
-  void onInit() {
-    print('커넥트 시작');
-    connectServer();
-    print('커넥트 완료');
-    // ever(data, (_) => print('gg'));
-    // once(data, (_) => print('한번만 호출'));
-    // debounce(count, (_) => print('마지막 변경에 한번만 호출'), time: Duration(seconds: 1));
-    // interval(data, (_) => InbodyPage(), time: Duration(seconds: 0));
-    super.onInit();
-  }
+  // @override
+  // void onInit() {
+  //   print('커넥트 시작');
+  //   // ever(data, (_) => InbodyPage());
+  //   // once(data, (_) => print('한번만 호출'));
+  //   // debounce(count, (_) => print('마지막 변경에 한번만 호출'), time: Duration(seconds: 1));
+  //   // interval(data, (_) => InbodyPage(), time: Duration(seconds: 0));
+  //   print('커넥트 완료');
+  //   super.onInit();
+  // }
 
   RxList<dynamic> data = [].obs;
-  RxString test = '기존임다'.obs;
+  RxList<dynamic> testlist = ["가", "나"].obs;
   final String _url = "http://10.0.2.2:8000/foodpage/";
 
   Future<void> connectServer() async {
@@ -69,8 +75,8 @@ class GetXHttp extends GetxController {
     return;
   }
 
-  @override
-  void onClose() {
-    super.onClose();
-  }
+  // @override
+  // void onClose() {
+  //   super.onClose();
+  // }
 }

@@ -15,7 +15,7 @@ class FoodProductApi extends GetxController {
       final List<FoodProductModel> parsedResponse =
           JsonResponse.map<FoodProductModel>(
               (json) => FoodProductModel.fromJson(json)).toList();
-      print(parsedResponse[0].product_carbonhydrate);
+      // print(parsedResponse[0].product_carbonhydrate);
       return parsedResponse;
     } else {
       throw Exception('Failed to load http get');

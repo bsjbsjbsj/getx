@@ -11,7 +11,7 @@ class FoodPageController extends GetxController {
   getAll() {
     repository.getAll().then((data) {
       this._productList.value = data;
-      print(productList[0].product_description);
+      // print(productList[0].product_description);
     });
   }
 }
