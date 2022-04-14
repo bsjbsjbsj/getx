@@ -142,7 +142,6 @@ class _WholeListState extends State<WholeList> {
               return Checkbox(
                 value: _getDataController.productList[index].product_ischecked,
                 onChanged: (value) {
-                  print('fq');
                   _getDataController.productList[index].product_ischecked =
                       value!;
                   if (value == false) {
@@ -179,6 +178,7 @@ class _WholeListState extends State<WholeList> {
                       ),
                     );
                   }
+                  _getDataController.productList.refresh();
                 },
               );
             }),

@@ -12,7 +12,5 @@ class FoodPageBinding implements Bindings {
     Get.put(
       FoodCalculatingController(),
     );
-    Get.put(GetXHttp());
-    Get.put(GetXHttp()).connectServer();
   }
 }
